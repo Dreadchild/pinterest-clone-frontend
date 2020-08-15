@@ -33,7 +33,7 @@ function App() {
 
   const link = from([
     errorLink,
-    new HttpLink({ uri: "https://mpinterestclone.herokuapp.com/graphql" }),
+    new HttpLink({ uri: process.env.REACT_APP_API }),
   ]);
 
   const client = new ApolloClient({
