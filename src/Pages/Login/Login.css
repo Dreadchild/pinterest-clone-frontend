@@ -1,0 +1,40 @@
+.LoginContainer {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.LoginContainer .Login {
+    border: 2px solid #1771d1;
+    box-shadow: 5px 5px #8d99ae;
+    background-color: #1e82ed;
+    width: 35rem;
+    height: 500px;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    color: #edf2f4;
+}
+
+.LoginContainer .Login .loginHeader {
+    flex: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.LoginContainer .Login .loginBody {
+    flex: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.LoginContainer .Login .googleLogin {
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}

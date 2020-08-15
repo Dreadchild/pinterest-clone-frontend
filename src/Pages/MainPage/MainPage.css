@@ -1,0 +1,22 @@
+.MainPage {
+    width: 100%;
+}
+
+#addPin {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 45px;
+    color: #1e82ed;
+    border-radius: 50%;
+}
+
+#addPin:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 6px black;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
