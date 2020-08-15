@@ -12,18 +12,20 @@ const GridLayout: React.FC = () => {
   const [savePin, { error }] = useMutation(SaveMutation);
 
   const { loading, data } = useQuery(LOAD_PINS_QUERY);
-  const { loading: loadingSavedPin, data: dataSavedPin } = useQuery(
-    LOAD_SAVED_PINS_QUERY,
-    {
-      variables: { googleId: sessionStorage.getItem("googleId") },
-    }
-  );
+
+  // if ()
 
   const [loadedPins, setLoadedPins] = useState<string[]>([]);
   const [savedPins, setSavedPins] = useState<string[]>([]);
 
   const [loggedIn, setLoggedIn] = useState<boolean>(false);
 
+  const { loading: loadingSavedPin, data: dataSavedPin } = useQuery(
+    LOAD_SAVED_PINS_QUERY,
+    {
+      variables: { googleId: loggedIn && sessionStorage.getItem("googleId") },
+    }
+  );
   let history = useHistory();
 
   useEffect(() => {
