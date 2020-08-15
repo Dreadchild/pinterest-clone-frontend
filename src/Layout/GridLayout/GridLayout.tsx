@@ -23,7 +23,8 @@ const GridLayout: React.FC = () => {
   const { loading: loadingSavedPin, data: dataSavedPin } = useQuery(
     LOAD_SAVED_PINS_QUERY,
     {
-      variables: { googleId: loggedIn && sessionStorage.getItem("googleId") },
+      variables: { googleId: sessionStorage.getItem("googleId") },
+      skip: !loggedIn,
     }
   );
   let history = useHistory();
@@ -40,7 +41,7 @@ const GridLayout: React.FC = () => {
   }, [data]);
 
   useEffect(() => {
-    if (!loadingSavedPin) {
+    if (!loadingSavedPin && loggedIn) {
       dataSavedPin.getSavedPins.map((val: number, key: number) => {
         setSavedPins((savedPins) => [
           ...savedPins,
