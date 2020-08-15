@@ -97,36 +97,6 @@ const GridLayout: React.FC = () => {
           </Col>
         );
       })}
-      <Col>
-        <img src="https://i.pinimg.com/474x/a6/26/20/a626209354c24c243a825c1d8f4be33b.jpg" />
-      </Col>
-      <Col>
-        <img src="https://i.pinimg.com/474x/9f/c7/5c/9fc75c8b289d5630179d3bfa5f404a49.jpg" />
-      </Col>
-      <Col>
-        <img src="https://i.pinimg.com/474x/45/68/86/456886e30ae298eb359aa837a6ca6c16.jpg" />
-      </Col>
-      <Col>
-        <img src="https://i.pinimg.com/474x/45/68/86/456886e30ae298eb359aa837a6ca6c16.jpg" />
-      </Col>
-      <Col>
-        <img src="https://i.pinimg.com/474x/db/a1/66/dba166619e3e15fba205fa9ceebea237.jpg" />
-      </Col>
-      <Col>
-        <img src="https://i.pinimg.com/474x/ee/46/af/ee46af846ce854fc212a89af82e96d71.jpg" />
-      </Col>
-      <Col>
-        <img src="https://i.pinimg.com/474x/f4/65/6c/f4656c06f4212849307832fc8faf8968.jpg" />
-      </Col>
-      <Col>
-        <img src="https://i.pinimg.com/474x/64/49/20/64492016780b6a0839ad4a544330591a.jpg" />
-      </Col>
-      <Col>
-        <img src="https://i.pinimg.com/474x/7b/0b/b4/7b0bb439aef933c87f446fb1cbb71212.jpg" />
-      </Col>
-      <Col>
-        <img src="https://i.pinimg.com/474x/98/78/9f/98789f8e3eff1fb0a7b8b4e1de4c561f.jpg" />
-      </Col>
     </ImagesContainer>
   );
 };
