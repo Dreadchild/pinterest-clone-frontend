@@ -25,6 +25,12 @@ const SavedPins: React.FC = () => {
     }
   }, [data]);
 
+  useEffect(() => {
+    if (sessionStorage.getItem("loggedIn") != "true") {
+      history.push("/login");
+    }
+  }, []);
+
   return (
     <ImagesContainer>
       {savedPins.map((image, key) => {

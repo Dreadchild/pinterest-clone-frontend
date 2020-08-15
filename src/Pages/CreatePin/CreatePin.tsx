@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Form,
@@ -34,6 +34,12 @@ const CreatePin: React.FC = () => {
   const [loadingAnimation, setLoadingAnimation] = useState<boolean>(false);
 
   let history = useHistory();
+
+  useEffect(() => {
+    if (sessionStorage.getItem("loggedIn") != "true") {
+      history.push("/login");
+    }
+  }, []);
 
   const UploadPin = async () => {
     const invalidInputs = await validateInputs();

@@ -29,6 +29,12 @@ const MyPins: React.FC = () => {
     }
   }, [data]);
 
+  useEffect(() => {
+    if (sessionStorage.getItem("loggedIn") != "true") {
+      history.push("/login");
+    }
+  }, []);
+
   return (
     <ImagesContainer>
       {loadedPins.map((image, key) => {
