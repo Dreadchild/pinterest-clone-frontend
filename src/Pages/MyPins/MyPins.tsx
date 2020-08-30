@@ -53,20 +53,13 @@ const MyPins: React.FC = () => {
       {loadedPins.map((image, key) => {
         return (
           <Col>
-            {loggedIn &&
-              (!loadedPins.includes(image) ? (
-                <DeletePin
-                  onClick={() => {
-                    handleDeletePin(image);
-                  }}
-                >
-                  Save
-                </DeletePin>
-              ) : (
-                <DeletePin>
-                  <BsFillTrashFill style={{ fontSize: 17 }}></BsFillTrashFill>
-                </DeletePin>
-              ))}
+            <DeletePin
+              onClick={() => {
+                handleDeletePin(image);
+              }}
+            >
+              <BsFillTrashFill style={{ fontSize: 17 }}></BsFillTrashFill>
+            </DeletePin>
             <Image
               key={key}
               cloudName={process.env.REACT_APP_CLOUD_NAME}
