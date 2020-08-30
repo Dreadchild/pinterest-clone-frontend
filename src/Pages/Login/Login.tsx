@@ -8,8 +8,6 @@ import { CreateUserMutation } from "../../GraphQL/Mutations";
 import "./Login.css";
 
 const Login: React.FC = () => {
-  const history = useHistory();
-
   //Apollo Hooks
   const [createUser, { error }] = useMutation(CreateUserMutation);
 

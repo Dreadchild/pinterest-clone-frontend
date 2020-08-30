@@ -68,3 +68,21 @@ export const SavePin = styled.button`
     cursor: pointer;
   }
 `;
+
+export const DeletePin = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 15px;
+  background-color: #1e82ed;
+  color: #ffffff;
+  width: 60px;
+  height: 35px;
+  border: none;
+  border-radius: 15px;
+  display: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;

@@ -13,8 +13,6 @@ const GridLayout: React.FC = () => {
 
   const { loading, data } = useQuery(LOAD_PINS_QUERY);
 
-  // if ()
-
   const [loadedPins, setLoadedPins] = useState<string[]>([]);
   const [savedPins, setSavedPins] = useState<string[]>([]);
 

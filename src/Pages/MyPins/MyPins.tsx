@@ -1,51 +1,78 @@
 import React, { useEffect, useState } from "react";
-import { ImagesContainer, Col } from "../../Components/MainPage";
-import { useQuery, gql } from "@apollo/client";
+import { ImagesContainer, Col, DeletePin } from "../../Components/MainPage";
+import { BsFillTrashFill } from "react-icons/bs";
+import { useQuery, useMutation, gql } from "@apollo/client";
 import { LOAD_MY_PINS_QUERY } from "../../GraphQL/Queries";
+import { SaveMutation, DeleteMutation } from "../../GraphQL/Mutations";
 import { useHistory } from "react-router-dom";
 const { Image } = require("cloudinary-react");
 
 const MyPins: React.FC = () => {
+  //Apollo Hooks
+  const [deletePin] = useMutation(DeleteMutation);
+
   const { loading, error, data } = useQuery(LOAD_MY_PINS_QUERY, {
     variables: { userId: sessionStorage.getItem("googleId") },
   });
 
-  const [loadedPins, setLoadedPins] = useState([{ imageUrl: "", title: "" }]);
+  const [loadedPins, setLoadedPins] = useState<string[]>([]);
+  const [loggedIn, setLoggedIn] = useState<boolean>(false);
 
   let history = useHistory();
 
   useEffect(() => {
+    if (sessionStorage.getItem("loggedIn") === "true") {
+      setLoggedIn(true);
+    } else {
+      history.push("/login");
+    }
+  }, []);
+
+  useEffect(() => {
     if (!loading) {
-      console.log(data);
       data.myPins.map((val: number, key: number) => {
         setLoadedPins((loadedPins) => [
           ...loadedPins,
-          {
-            imageUrl: data.myPins[key].imageUrl,
-            title: data.myPins[key].title,
-          },
+          data.myPins[key].imageUrl as string,
         ]);
       });
     }
   }, [data]);
 
-  useEffect(() => {
-    if (sessionStorage.getItem("loggedIn") != "true") {
-      history.push("/login");
-    }
-  }, []);
-
+  const handleDeletePin = async (imageUrl: string) => {
+    await deletePin({
+      variables: {
+        imageUrl: imageUrl,
+      },
+    });
+    const indexOfElem = await loadedPins.indexOf(imageUrl);
+    setLoadedPins(loadedPins.splice(indexOfElem, 1));
+  };
   return (
     <ImagesContainer>
       {loadedPins.map((image, key) => {
         return (
           <Col>
+            {loggedIn &&
+              (!loadedPins.includes(image) ? (
+                <DeletePin
+                  onClick={() => {
+                    handleDeletePin(image);
+                  }}
+                >
+                  Save
+                </DeletePin>
+              ) : (
+                <DeletePin>
+                  <BsFillTrashFill style={{ fontSize: 17 }}></BsFillTrashFill>
+                </DeletePin>
+              ))}
             <Image
               key={key}
               cloudName={process.env.REACT_APP_CLOUD_NAME}
-              publicId={image.imageUrl}
+              publicId={image}
               onClick={() => {
-                history.push(`/pin/${image.imageUrl}`);
+                history.push(`/pin/${image}`);
               }}
             />
           </Col>

@@ -46,3 +46,11 @@ export const SaveMutation = gql`
     }
   }
 `;
+
+export const DeleteMutation = gql`
+  mutation deletePin($imageUrl: String!) {
+    deletePin(imageUrl: $imageUrl) {
+      id
+    }
+  }
+`;
