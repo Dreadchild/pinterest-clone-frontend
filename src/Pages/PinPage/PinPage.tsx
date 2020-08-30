@@ -45,7 +45,7 @@ const PinPage: React.FC = () => {
           {!errorLoading ? (
             <Image
               cloudName={process.env.REACT_APP_CLOUD_NAME}
-              publicId={id}
+              publicId={id + ".webp"}
               onError={() => {
                 setErrorLoading(true);
               }}

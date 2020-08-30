@@ -63,7 +63,7 @@ const MyPins: React.FC = () => {
             <Image
               key={key}
               cloudName={process.env.REACT_APP_CLOUD_NAME}
-              publicId={image}
+              publicId={image + ".webp"}
               onClick={() => {
                 history.push(`/pin/${image}`);
               }}

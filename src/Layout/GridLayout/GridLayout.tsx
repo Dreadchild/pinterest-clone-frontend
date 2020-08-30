@@ -90,11 +90,13 @@ const GridLayout: React.FC = () => {
               ))}
             <Image
               cloudName={process.env.REACT_APP_CLOUD_NAME}
-              publicId={image}
+              publicId={image + ".webp"}
               onClick={() => {
                 history.push(`/pin/${image}`);
               }}
-            />
+            >
+              {" "}
+            </Image>
           </Col>
         );
       })}
