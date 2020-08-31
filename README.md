@@ -15,17 +15,27 @@ saved in a ClearDB MySQL database. If the user wants to upload a
 pin, the image (and other details) are inserted to the database
 and uploaded to Cloudinary as an image storage.
 
+### Features Include:
+- Authentication with Google OAUTH
+- Upload an 'Pin', which is an image together with:
+  - A title
+  - A Description
+  - A URL
+- Save Pins they enjoyed from other people
+- Delete their own pins
+
 ## Time Taken:
 
 2 weeks
 
 ## Technologies Used:
 
+- TypeScript
 - ReactJS
+- GraphQL
+- Apollo
 - NodeJS
 - ExpressJS
-- GraphQL
-- Apollo Server / Apollo Client
 - MySQL
 - Sequelize ORM
 - Google OAUTH
